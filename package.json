@@ -1,0 +1,67 @@
+{
+  "name": "fr-reference-detector2",
+  "displayName": "FR Reference Detector",
+  "description": "Detects FR references and displays Word documents inline",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:cpp",
+    "onLanguage:c",
+    "onLanguage:ada"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "frDetector.openFR",
+        "title": "Open FR Document"
+      },
+      {
+        "command": "frDetector.refreshCache",
+        "title": "Refresh FR Cache"
+      }
+    ],
+    "configuration": {
+      "title": "FR Reference Detector",
+      "properties": {
+        "frDetector.pythonPath": {
+          "type": "string",
+          "default": "python"
+        },
+        "frDetector.frFolderPath": {
+          "type": "string",
+          "default": ""
+        },
+        "frDetector.previewLength": {
+          "type": "number",
+          "default": 200
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {
+    "mammoth": "1.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "docx": "^9.5.1",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
